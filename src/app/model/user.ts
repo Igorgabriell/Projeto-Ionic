@@ -5,9 +5,10 @@ export class User {
    
     _id:String = uuid();
     nome:String = "";
-    email:String = "";
+    email:String = "";  
     senha:String = "";
     telefone:String = "";
-
-
 }
+
+
+
