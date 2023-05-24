@@ -15,10 +15,11 @@ export class Tab2Page {
 
   constructor(
     private alertController: AlertController,
-    private userService:UserService
+    
     ){}
   
   user = new User()
+  userService = new UserService();
 
   async presentAlert(tipo: string, texto: string) {
     const alert = await this.alertController.create({
