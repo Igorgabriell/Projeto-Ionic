@@ -1,8 +1,7 @@
-import { ProdutoService } from './../services/produto.service';
-
 import { Component } from '@angular/core';
-import { Produto } from '../model/produto';
+import { Produtos } from '../model/produtos';
 import { AlertController } from '@ionic/angular';
+import { ProdutosService } from '../services/produtos.service';
 
 @Component({
   selector: 'app-tab3',
@@ -11,31 +10,28 @@ import { AlertController } from '@ionic/angular';
 })
 export class Tab3Page {
 
-  constructor(
-    private alertController: AlertController,
-    
-    ){}
-  
-  produto = new Produto()
-  produtoService = new ProdutoService();
+  produtos = new Produtos();
+  produtosService = new ProdutosService();
+  constructor(private alertController: AlertController, //private produtosService: ProdutosService
+  ) {}
 
   async presentAlert(tipo: string, texto: string) {
     const alert = await this.alertController.create({
       header: tipo,
-      //subHeader "mensagem importante"
+      //subHeader: 'Important message',
       message: texto,
-      buttons: ['OK']
+      buttons: ['OK'],
     });
 
     await alert.present();
   }
 
-  save() {
-    this.produtoService.add(this.produto);
-    this.presentAlert("Aviso", "Cadastro");
-    console.log(this.produto);
-     //console.log(this.user);
+  save(){
+    this.produtosService.add(this.produtos);
+    this.presentAlert("Aviso", "Cadastrado");
+    
+    
   }
- 
+
 
 }

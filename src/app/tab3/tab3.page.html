@@ -5,52 +5,44 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
+<!--Nome: Micael de Oliveira Santana-->
 <ion-content [fullscreen]="true">
-
-  <!---->
-  <!---->
-  <!--                        Aluno = Igor dos Santos Gabriel          -->
-  <!---->
-  <!---->
 
   <form #fc="ngForm">
     <ion-list>
       <ion-item class="pt-10">
-        <ion-input label="Nome" label-placement="floating" fill="outline" [(ngModel)]="produto.nome" name="nome"
+        <ion-input label="Nome" label-placement="floating" fill="outline" [(ngModel)]="produtos.nome" name="nome"
           required></ion-input>
       </ion-item>
 
       <ion-item class="pt-10">
-        <ion-input label="Categoria" label-placement="floating" fill="outline" [(ngModel)]="produto.categoria"
-          name="categoria" required></ion-input>
+        <ion-input label="Categoria" label-placement="floating" fill="outline" [(ngModel)]="produtos.categoria" name="categoria"
+        required></ion-input>
       </ion-item>
+
 
       <ion-item class="pt-10">
-        <ion-input label="descricao" label-placement="floating" fill="outline" [(ngModel)]="produto.descricao"
-          name="descricao" required></ion-input>
+        <ion-input label="Descrição"  label-placement="floating" fill="outline" [(ngModel)]="produtos.descricao" name="descricao"
+          required></ion-input>
       </ion-item>
 
 
       <ion-item item class="pt-10">
-        <ion-input label="Quantidade" label-placement="floating" fill="outline" [(ngModel)]="produto.quant" name="quant"
-          required type="number"></ion-input>
+        <ion-input label="Quantidade" label-placement="floating" fill="outline" [(ngModel)]="produtos.quant"
+          name="quant" required></ion-input>
       </ion-item>
 
       <ion-item item class="pt-10">
-        <ion-input label="Valor" label-placement="floating" fill="outline" [(ngModel)]="produto.valor" name="quant"
-          required type="number"></ion-input>
+        <ion-input label="Preço" label-placement="floating" fill="outline" [(ngModel)]="produtos.valor"
+          name="valor" required></ion-input>
       </ion-item>
 
       <ion-item item class="pt-10">
-        <ion-button [disabled]="fc.invalid" slot="end" (click)="save()">Salvar</ion-button>
+        <ion-button [disabled]="fc.invalid" (click)="save()" slot="end">Salvar<ion-icon name="bag-check-outline"></ion-icon></ion-button>
         <ion-button color="danger" slot="end">Cancelar</ion-button>
       </ion-item>
 
-
     </ion-list>
   </form>
-
-  {{produto.nome}}
-
+  
 </ion-content>
