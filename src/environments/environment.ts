@@ -5,14 +5,16 @@
 export const environment = {
   production: false,  
   firebaseConfig: {
-    apiKey: "AIzaSyB2lWJAKtgRxxEZHDsOZIsCUXb0nPEAXRk",
-    authDomain: "salaomobile-ea412.firebaseapp.com",
-    projectId: "salaomobile-ea412",
-    storageBucket: "salaomobile-ea412.appspot.com",
-    messagingSenderId: "967297123521",
-    appId: "1:967297123521:web:c7a0684e2179aafd300040"
+    apiKey: "AIzaSyA0TdKtpXyfqGd02WOXZy6OGM0oD-_8Zmo",
+    authDomain: "salaomobile-8505c.firebaseapp.com",
+    projectId: "salaomobile-8505c",
+    storageBucket: "salaomobile-8505c.appspot.com",
+    messagingSenderId: "664236759866",
+    appId: "1:664236759866:web:a05ba510259f7819568e03",
+    measurementId: "G-MFMGDVXPNS"
   }
-};
+};// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 
 /*
  * For easier debugging in development mode, you can import the following file

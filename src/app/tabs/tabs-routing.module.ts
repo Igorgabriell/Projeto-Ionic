@@ -20,7 +20,7 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
-        path: 'userForm',
+        path: 'userForm/:id',
         loadChildren: () => import('../pages/user-form/user-form.module').then(m => m.UserFormPageModule)
       },
       {

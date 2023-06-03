@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services/user.service';
-
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.page.html',
@@ -10,12 +9,15 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserFormPage implements OnInit {
 
+
+
+  
   ngOnInit() {
   }
 
   user = new User();
   constructor(private alertController: AlertController, private userService: UserService
-  ) {}
+  ) { }
 
   async presentAlert(tipo: string, texto: string) {
     const alert = await this.alertController.create({
@@ -28,12 +30,18 @@ export class UserFormPage implements OnInit {
     await alert.present();
   }
 
-  save(){
-    this.userService.add(this.user);
-    this.presentAlert("Aviso", "Cadastrado");
-    //console.log(this.user);
+  save() {
 
-    
+    this.userService.add(this.user)
+      .then(res => {
+        console.log(this.user);
+        this.presentAlert("Aviso", "Cadastrado");
+      })
+      .catch((err) => {
+      console.log(err);
+      this.presentAlert("Erro", "Não Cadastrado");
+    })
+
   }
 
 
