@@ -4,16 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { UserFormPageRoutingModule } from './user-form-routing.module';
-import { UserFormPage } from './user-form.page';
+import { ProdutoListPageRoutingModule } from './produto-list-routing.module';
+
+import { ProdutoListPage } from './produto-list.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    UserFormPageRoutingModule
+    ProdutoListPageRoutingModule
   ],
-  declarations: [UserFormPage]
+  declarations: [ProdutoListPage]
 })
-export class UserFormPageModule {}
+export class ProdutoListPageModule {}

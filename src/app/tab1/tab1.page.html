@@ -8,5 +8,17 @@
   </ion-header>
 
   <app-explore-container name="Tab 1 page"></app-explore-container>
+
+  <ion-card *ngFor="let produto of produtos">
+    <img alt="Silhouette of mountains" src="{{produto.fotos}}"/>
+    <ion-card-header>
+      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-subtitle>{{produto.nome}}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Here's a small text description for the card content. Nothing more, nothing less.
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 

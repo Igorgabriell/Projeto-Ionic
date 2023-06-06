@@ -11,7 +11,7 @@ export class UserFormPage implements OnInit {
 
 
 
-  
+
   ngOnInit() {
   }
 
@@ -38,9 +38,9 @@ export class UserFormPage implements OnInit {
         this.presentAlert("Aviso", "Cadastrado");
       })
       .catch((err) => {
-      console.log(err);
-      this.presentAlert("Erro", "Não Cadastrado");
-    })
+        console.log(err);
+        this.presentAlert("Erro", "Não Cadastrado");
+      })
 
   }
 

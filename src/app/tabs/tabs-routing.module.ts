@@ -32,6 +32,21 @@ const routes: Routes = [
         loadChildren: () => import('../pages/user-list/user-list.module').then(m => m.UserListPageModule)
       },
       {
+
+      path: 'produtoList',
+      loadChildren: () => import('../pages/produto-list/produto-list.module').then(m => m.ProdutoListPageModule)
+   
+
+      },
+      {
+
+        path: 'produtoForm',
+        loadChildren: () => import('../pages/produto-form/produto-form.module').then(m => m.ProdutoFormPageModule)
+     
+  
+        },
+      {
+
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

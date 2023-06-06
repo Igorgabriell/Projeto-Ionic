@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { ProdutoService } from 'src/app/services/produto.service';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-produto-list',
+  templateUrl: './produto-list.page.html',
+  styleUrls: ['./produto-list.page.scss'],
 })
-export class Tab1Page implements OnInit {
+export class ProdutoListPage implements OnInit {
 
   constructor(
     private produtoService: ProdutoService,

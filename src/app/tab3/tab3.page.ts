@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Produtos } from '../model/produtos';
+import { Produto } from '../model/produto';
 import { AlertController } from '@ionic/angular';
-import { ProdutosService } from '../services/produtos.service';
+import { ProdutoService } from '../services/produto.service';
 
 @Component({
   selector: 'app-tab3',
@@ -10,8 +10,8 @@ import { ProdutosService } from '../services/produtos.service';
 })
 export class Tab3Page {
 
-  produtos = new Produtos();
-  produtosService = new ProdutosService();
+  produto = new Produto();
+  produtoService = new ProdutoService();
   constructor(private alertController: AlertController, //private produtosService: ProdutosService
   ) {}
 
@@ -27,7 +27,7 @@ export class Tab3Page {
   }
 
   save(){
-    this.produtosService.add(this.produtos);
+    this.produtoService.add(this.produto);
     this.presentAlert("Aviso", "Cadastrado");
     
     

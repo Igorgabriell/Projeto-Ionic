@@ -17,6 +17,14 @@ const routes: Routes = [
   {
     path: 'user-list',
     loadChildren: () => import('./pages/user-list/user-list.module').then( m => m.UserListPageModule)
+  },
+  {
+    path: 'produto-form',
+    loadChildren: () => import('./pages/produto-form/produto-form.module').then( m => m.ProdutoFormPageModule)
+  },
+  {
+    path: 'produto-list',
+    loadChildren: () => import('./pages/produto-list/produto-list.module').then( m => m.ProdutoListPageModule)
   }
 ];
 @NgModule({
