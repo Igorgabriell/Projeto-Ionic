@@ -1,14 +1,11 @@
-import {v4 as uuid } from 'uuid';
+import { v4 as uuid } from 'uuid';
 export class User {
-    _id:string = uuid();
+    _id: string = "";
     nome: string = "";
-    email: String ="";
-    senha: string = "";
     telefone: string = "";
-    ativo:boolean = true;
+    foto: string = "";
+    email: string = "";
+    senha: string = "";
+    ativo: boolean = true;
 
-
-    add(){
-        console.log("SALVO!!")
-    }
 }

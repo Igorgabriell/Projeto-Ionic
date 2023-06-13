@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services/user.service';
@@ -8,17 +9,23 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-form.page.scss'],
 })
 export class UserFormPage implements OnInit {
-
-
-
-
-  ngOnInit() {
-  }
-
+  _id: string | null = null;
   user = new User();
-  constructor(private alertController: AlertController, private userService: UserService
+  constructor(private alertController: AlertController, private userService: UserService, private activeRouter: ActivatedRoute
   ) { }
 
+  ngOnInit() {
+    this.getParam()
+  }
+
+  getParam() {
+    this._id = this.activeRouter.snapshot.paramMap.get("id");
+    if (this._id) {
+      this.userService.get(this._id).then(res => {
+        this.user = <User>res;
+      })
+    }
+  }
   async presentAlert(tipo: string, texto: string) {
     const alert = await this.alertController.create({
       header: tipo,
@@ -31,18 +38,34 @@ export class UserFormPage implements OnInit {
   }
 
   save() {
-
+    try {
     this.userService.add(this.user)
-      .then(res => {
-        console.log(this.user);
+      .then((res) => {
+        console.log(res);
         this.presentAlert("Aviso", "Cadastrado");
       })
       .catch((err) => {
         console.log(err);
-        this.presentAlert("Erro", "Não Cadastrado");
-      })
-
+        this.presentAlert("Erro", "Não cadastrado");
+      })} catch (err) {
+        this.presentAlert("Erro", "Sistema indisponível");
+      }
   }
 
-
+  update() {
+    try {
+      if (this._id)
+        this.userService.update(this.user, this._id)
+          .then((res) => {
+            console.log(res);
+            this.presentAlert("Aviso", "Atualizado");
+          })
+          .catch((err) => {
+            console.log(err);
+            this.presentAlert("Erro", "Não atualizado");
+          })
+    } catch (err) {
+      this.presentAlert("Erro", "Sistema indisponível");
+    }
+  }
 }

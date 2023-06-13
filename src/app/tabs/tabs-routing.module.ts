@@ -32,19 +32,21 @@ const routes: Routes = [
         loadChildren: () => import('../pages/user-list/user-list.module').then(m => m.UserListPageModule)
       },
       {
-
-      path: 'produtoList',
-      loadChildren: () => import('../pages/produto-list/produto-list.module').then(m => m.ProdutoListPageModule)
-   
-
+        path: 'produtoList',
+        loadChildren: () => import('../pages/produto-list/produto-list.module').then(m => m.ProdutoListPageModule)
       },
       {
 
         path: 'produtoForm',
         loadChildren: () => import('../pages/produto-form/produto-form.module').then(m => m.ProdutoFormPageModule)
-     
-  
-        },
+
+
+      }, {
+        path: 'userForm',
+        loadChildren: () => import('../pages/user-form/user-form.module').then(m => m.UserFormPageModule)
+
+
+      },
       {
 
         path: '',
@@ -63,4 +65,4 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

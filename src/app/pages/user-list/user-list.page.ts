@@ -1,5 +1,7 @@
+import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -11,8 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class UserListPage implements OnInit {
 
   constructor(
-    private userService: UserService,
-    private router: Router
+    private userService: UserService, private router: Router, private alertController: AlertController
   ) { }
 
   users: User[] = [];
@@ -33,17 +34,47 @@ export class UserListPage implements OnInit {
     })
   }
 
-  editUser(_id: string) {
+  edit(_id: string) {
     this.router.navigate(['/tabs/userForm', _id],)
   }
 
   handleRefresh(event: any) {
-    setTimeout(() => {
-      // Any calls to load data go here
-      event?.target?.complete();
-    }, 2000);
+    this.userService.list()
+      .then(res => {
+        console.log(res)
+        this.users = <User[]>res;
+        event?.target?.complete();
+      });
   }
 
+  async remove(id: string) {
+    const alert = await this.alertController.create({
+      header: 'Confirme',
+      subHeader: 'Deseja apagar o registro?',
+      buttons: [{
+        text: 'Não',
+        role: 'cancel',
+        handler: () => {
+         
 
+        },
+      }, {
+        text: 'Sim',
+        role: 'confirm',
+        handler: () => {
+          this.removeUser(id);
+          
+          
+      }
+    }
+  ],
+ });
 
-}
+    await alert.present();
+  }
+  removeUser(id: string){
+    this.userService.delete(id)
+              .then(res=> {
+                this.getList();
+              });
+}}
