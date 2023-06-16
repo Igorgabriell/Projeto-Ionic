@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>productPerfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">productPerfil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <img [alt]="'foto do produto '+product.nome" src="https://picsum.photos/200" />
+    <ion-card-header>
+      <ion-card-title>{{product.nome}}</ion-card-title>
+      <ion-card-subtitle>{{product.valor}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{product.descricao}}
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
